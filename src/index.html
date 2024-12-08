@@ -1,29 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-    <link rel="shortcut icon" href="./4geeks.ico" />
+    <title>Generador de Excusas</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+      #excusa {
+        margin: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        width: 300px;
+        text-align: center;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
-    </div>
+    <h1>Generador de Excusas</h1>
+    <button onclick="mostrarExcusa()">Generar Excusa</button>
+    <div id="excusa"></div>
+
+    <script>
+      function generarExcusa() {
+        const motivos = [
+          "me siento mal",
+          "tengo una cita médica",
+          "se me olvidó",
+          "mi perro se escapó",
+          "tuve un problema familiar",
+          "me quedé atrapado en el tráfico",
+          "no tengo transporte",
+          "me surgió un imprevisto",
+          "estoy esperando un paquete",
+          "no me desperté a tiempo"
+        ];
+
+        const actividades = [
+          "por eso no puedo ir a la reunión",
+          "así que no podré asistir a la clase",
+          "y no podré entregar el proyecto a tiempo",
+          "por lo que no podré salir hoy",
+          "así que no podré participar en el evento",
+          "y no podré hacer la presentación",
+          "por lo que no podré cumplir con mi compromiso",
+          "así que no podré ayudar con eso",
+          "y no podré ir a la fiesta",
+          "por lo que no podré hacer la llamada"
+        ];
+
+        const motivoAleatorio =
+          motivos[Math.floor(Math.random() * motivos.length)];
+        const actividadAleatoria =
+          actividades[Math.floor(Math.random() * actividades.length)];
+
+        return `Lo siento, ${motivoAleatorio} ${actividadAleatoria}.`;
+      }
+
+      function mostrarExcusa() {
+        const excusa = generarExcusa();
+        document.getElementById("excusa").innerText = excusa;
+      }
+    </script>
   </body>
 </html>
